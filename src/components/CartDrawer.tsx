@@ -142,8 +142,12 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   <div className="w-20 aspect-[3/4] bg-zinc-900 border border-zinc-800 overflow-hidden shrink-0">
                     <img
                       src={item.product.image}
+                      onError={(e) => {
+                        if (item.product.fallbackImage) {
+                          e.currentTarget.src = item.product.fallbackImage;
+                        }
+                      }}
                       alt={item.product.name}
-                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover"
                     />
                   </div>

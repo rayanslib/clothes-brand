@@ -1,5 +1,9 @@
 import { Product } from '../types';
 
+export const HERO_IMAGE_PATH = '/images/hero.jpg';
+export const HERO_FALLBACK_IMAGE =
+  'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=80';
+
 export const PRODUCTS: Product[] = [
   {
     id: 'ka-01-jkt',
@@ -8,7 +12,9 @@ export const PRODUCTS: Product[] = [
     category: 'outerwear',
     categoryLabel: 'Outerwear',
     priceUSD: 480,
-    image: '/src/assets/images/kinetic_jacket_tactical_1792869214778.jpg',
+    image: '/images/jacket.jpg',
+    fallbackImage:
+      'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80',
     badge: 'DROP 01',
     description:
       'Architectural modular shell engineered from 3-layer bonded microporous nylon. Features magnetic storm flap, taped water-sealed seams, articulated sleeve patterning, and matte anodized zip pulls.',
@@ -31,7 +37,9 @@ export const PRODUCTS: Product[] = [
     category: 'bottoms',
     categoryLabel: 'Bottoms',
     priceUSD: 320,
-    image: '/src/assets/images/kinetic_cargo_pant_1792869215883.jpg',
+    image: '/images/cargo.jpg',
+    fallbackImage:
+      'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?auto=format&fit=crop&w=800&q=80',
     badge: 'ARCHIVAL',
     description:
       'Constructed from custom-developed 460GSM washed carbon twill. Engineered with triple-pleated knee articulation for fluid movement and ergonomic geometric cargo pockets.',
@@ -54,7 +62,9 @@ export const PRODUCTS: Product[] = [
     category: 'sweats',
     categoryLabel: 'Sweatshirts',
     priceUSD: 240,
-    image: '/src/assets/images/kinetic_hoodie_heavy_1792869216396.jpg',
+    image: '/images/hoodie.jpg',
+    fallbackImage:
+      'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80',
     badge: 'CORE ARCHIVE',
     description:
       'The definitive luxury heavyweight silhouette. Spun from ultra-dense 520GSM combed loopback French terry with a seamless double-layered hood and blind-stitched kangaroo pocket.',
@@ -77,7 +87,9 @@ export const PRODUCTS: Product[] = [
     category: 'accessories',
     categoryLabel: 'Accessories',
     priceUSD: 190,
-    image: '/src/assets/images/kinetic_monolith_tote_1792869215959.jpg',
+    image: '/images/tote.jpg',
+    fallbackImage:
+      'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80',
     badge: 'LIMITED RUN',
     description:
       'Structured modular daily monolith built from water-resistant 1680D ballistic nylon. Features aerospace aluminum hardware, tactical webbing grid, and padded interior device sleeve.',
@@ -94,5 +106,3 @@ export const PRODUCTS: Product[] = [
     ],
   },
 ];
-
-export const HERO_IMAGE_PATH = '/src/assets/images/kinetic_hero_streetwear_1792869213831.jpg';

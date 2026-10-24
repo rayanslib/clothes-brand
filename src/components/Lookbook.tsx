@@ -27,8 +27,10 @@ export const Lookbook: React.FC = () => {
             <div className="relative aspect-[3/4] bg-zinc-900 overflow-hidden border border-zinc-800 group">
               <img
                 src={PRODUCTS[0].image}
+                onError={(e) => {
+                  if (PRODUCTS[0].fallbackImage) e.currentTarget.src = PRODUCTS[0].fallbackImage;
+                }}
                 alt="Tactical Shell Styling"
-                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
@@ -46,8 +48,10 @@ export const Lookbook: React.FC = () => {
             <div className="relative aspect-[3/4] bg-zinc-900 overflow-hidden border border-zinc-800 group">
               <img
                 src={PRODUCTS[1].image}
+                onError={(e) => {
+                  if (PRODUCTS[1].fallbackImage) e.currentTarget.src = PRODUCTS[1].fallbackImage;
+                }}
                 alt="Articulated Cargo Styling"
-                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
@@ -65,8 +69,10 @@ export const Lookbook: React.FC = () => {
             <div className="relative aspect-[3/4] bg-zinc-900 overflow-hidden border border-zinc-800 group">
               <img
                 src={HERO_IMAGE_PATH}
+                onError={(e) => {
+                  e.currentTarget.src = 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80';
+                }}
                 alt="Full Ensemble Styling"
-                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">

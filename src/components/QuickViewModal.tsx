@@ -54,8 +54,12 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
         <div className="w-full md:w-1/2 aspect-[3/4] md:aspect-auto bg-zinc-950 relative overflow-hidden">
           <img
             src={product.image}
+            onError={(e) => {
+              if (product.fallbackImage) {
+                e.currentTarget.src = product.fallbackImage;
+              }
+            }}
             alt={product.name}
-            referrerPolicy="no-referrer"
             className="w-full h-full object-cover object-center"
           />
           {product.badge && (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowDown, ChevronRight } from 'lucide-react';
-import { HERO_IMAGE_PATH } from '../data/products';
+import { HERO_IMAGE_PATH, HERO_FALLBACK_IMAGE } from '../data/products';
 
 interface HeroProps {
   onShopDrop: () => void;
@@ -14,8 +14,10 @@ export const Hero: React.FC<HeroProps> = ({ onShopDrop, onViewManifesto }) => {
       <div className="absolute inset-0 z-0">
         <img
           src={HERO_IMAGE_PATH}
+          onError={(e) => {
+            e.currentTarget.src = HERO_FALLBACK_IMAGE;
+          }}
           alt="KINETIC ARCHIVE Drop 01 Brutalist Architectural Campaign"
-          referrerPolicy="no-referrer"
           className="w-full h-full object-cover object-center filter brightness-[0.75] contrast-[1.08] scale-100 transition-transform duration-1000 ease-out hover:scale-105"
         />
         {/* Gradients ensuring 4.5:1 text contrast */}

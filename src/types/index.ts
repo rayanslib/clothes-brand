@@ -15,6 +15,7 @@ export interface Product {
   categoryLabel: string;
   priceUSD: number;
   image: string;
+  fallbackImage?: string;
   badge?: string;
   description: string;
   composition: string;

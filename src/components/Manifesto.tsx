@@ -1,5 +1,5 @@
 import React from 'react';
-import { HERO_IMAGE_PATH } from '../data/products';
+import { HERO_IMAGE_PATH, HERO_FALLBACK_IMAGE } from '../data/products';
 
 export const Manifesto: React.FC = () => {
   return (
@@ -10,8 +10,10 @@ export const Manifesto: React.FC = () => {
           <div className="lg:col-span-5 relative aspect-[4/5] bg-zinc-900 overflow-hidden border border-zinc-800">
             <img
               src={HERO_IMAGE_PATH}
+              onError={(e) => {
+                e.currentTarget.src = HERO_FALLBACK_IMAGE;
+              }}
               alt="KINETIC ARCHIVE Atelier Editorial"
-              referrerPolicy="no-referrer"
               className="w-full h-full object-cover filter grayscale contrast-125"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />

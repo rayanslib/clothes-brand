@@ -94,8 +94,12 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   <div className="w-12 h-14 bg-zinc-900 overflow-hidden border border-zinc-800 shrink-0">
                     <img
                       src={product.image}
+                      onError={(e) => {
+                        if (product.fallbackImage) {
+                          e.currentTarget.src = product.fallbackImage;
+                        }
+                      }}
                       alt={product.name}
-                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover"
                     />
                   </div>

@@ -37,8 +37,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       >
         <img
           src={product.image}
+          onError={(e) => {
+            if (product.fallbackImage) {
+              e.currentTarget.src = product.fallbackImage;
+            }
+          }}
           alt={product.name}
-          referrerPolicy="no-referrer"
           className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
         />
 
