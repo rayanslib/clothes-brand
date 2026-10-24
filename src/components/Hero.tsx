@@ -17,7 +17,7 @@ export const Hero: React.FC<HeroProps> = ({ onShopDrop, onViewManifesto }) => {
           onError={(e) => {
             e.currentTarget.src = HERO_FALLBACK_IMAGE;
           }}
-          alt="KINETIC ARCHIVE Drop 01 Brutalist Architectural Campaign"
+          alt="EXOSYNTAX Drop 01 Brutalist Architectural Campaign"
           className="w-full h-full object-cover object-center filter brightness-[0.75] contrast-[1.08] scale-100 transition-transform duration-1000 ease-out hover:scale-105"
         />
         {/* Gradients ensuring 4.5:1 text contrast */}

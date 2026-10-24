@@ -20,7 +20,7 @@ export const Newsletter: React.FC<NewsletterProps> = ({ onShowToast }) => {
     }
 
     setError('');
-    const generatedVip = `KA-VIP-${Math.floor(1000 + Math.random() * 9000)}`;
+    const generatedVip = `EXO-VIP-${Math.floor(1000 + Math.random() * 9000)}`;
     setVipCode(generatedVip);
     setIsSubmitted(true);
     onShowToast(`VIP Access reserved. Use code VIPPASS at checkout for 15% off.`);

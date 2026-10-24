@@ -13,7 +13,7 @@ export const Manifesto: React.FC = () => {
               onError={(e) => {
                 e.currentTarget.src = HERO_FALLBACK_IMAGE;
               }}
-              alt="KINETIC ARCHIVE Atelier Editorial"
+              alt="EXOSYNTAX Atelier Editorial"
               className="w-full h-full object-cover filter grayscale contrast-125"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -42,7 +42,7 @@ export const Manifesto: React.FC = () => {
             </div>
 
             <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed">
-              KINETIC ARCHIVE was conceived as a structural resistance against the disposable velocity of seasonal fashion.
+              EXOSYNTAX was conceived as a structural resistance against the disposable velocity of seasonal fashion.
               We operate as a technical design lab in Tokyo and Milan, constructing modular garments at the nexus of brutalist
               architecture and high-performance textile engineering.
             </p>

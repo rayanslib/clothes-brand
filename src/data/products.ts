@@ -6,8 +6,8 @@ export const HERO_FALLBACK_IMAGE =
 
 export const PRODUCTS: Product[] = [
   {
-    id: 'ka-01-jkt',
-    sku: 'KA-01-JKT',
+    id: 'exo-01-jkt',
+    sku: 'EXO-01-JKT',
     name: 'Tactical Modular Shell Jacket',
     category: 'outerwear',
     categoryLabel: 'Outerwear',
@@ -31,8 +31,8 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
-    id: 'ka-02-btm',
-    sku: 'KA-02-BTM',
+    id: 'exo-02-btm',
+    sku: 'EXO-02-BTM',
     name: 'Articulated Heavy Twill Cargo',
     category: 'bottoms',
     categoryLabel: 'Bottoms',
@@ -56,8 +56,8 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
-    id: 'ka-03-sweat',
-    sku: 'KA-03-SWEAT',
+    id: 'exo-03-sweat',
+    sku: 'EXO-03-SWEAT',
     name: '520GSM Oversized Boxy Hoodie',
     category: 'sweats',
     categoryLabel: 'Sweatshirts',
@@ -81,8 +81,8 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
-    id: 'ka-04-acc',
-    sku: 'KA-04-ACC',
+    id: 'exo-04-acc',
+    sku: 'EXO-04-ACC',
     name: 'Monolith Ballistic Tote',
     category: 'accessories',
     categoryLabel: 'Accessories',

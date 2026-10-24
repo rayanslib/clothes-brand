@@ -30,7 +30,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center gap-2 text-left group focus:outline-none"
-            aria-label="KINETIC ARCHIVE Home"
+            aria-label="EXOSYNTAX Home"
           >
             {/* Custom geometric monogram SVG */}
             <svg
@@ -45,7 +45,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <line x1="2" y1="22" x2="22" y2="2" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" />
             </svg>
             <span className="font-display text-sm sm:text-lg tracking-wider font-extrabold text-white whitespace-nowrap uppercase">
-              KINETIC ARCHIVE
+              EXOSYNTAX
             </span>
           </button>
         </div>
