@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KINETIC ARCHIVE — Luxury Technical Apparel</title>
+  <meta name="description" content="Editorial luxury streetwear and technical apparel showcase. Minimalist brutalist dark aesthetic, Drop 01 catalog, interactive shopping bag drawer, and currency conversion.">
+  <meta name="theme-color" content="#09090b">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              black: '#09090b',
+              surface: '#0e0e12',
+              card: '#121216',
+              border: '#27272a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #09090b;
+      color: #f4f4f5;
+      overflow-x: hidden;
+    }
+    .font-display {
+      font-family: 'Syne', sans-serif;
+      letter-spacing: -0.03em;
+    }
+    .font-mono-numbers {
+      font-family: 'JetBrains Mono', monospace;
+      font-variant-numeric: tabular-nums;
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #09090b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #27272a;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3f3f46;
+    }
+    /* Smooth Transitions */
+    .drawer-transition {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-[#09090b] text-[#f4f4f5] antialiased selection:bg-white selection:text-black">
+
+  <!-- ================= ANNOUNCEMENT BAR ================= -->
+  <aside aria-label="Store Announcement" class="bg-[#111114] border-b border-zinc-800 text-[11px] font-mono tracking-wider text-zinc-400 py-2 px-4 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3 overflow-hidden text-ellipsis whitespace-nowrap">
+        <span class="text-zinc-200 uppercase font-medium">DROP 01 'EQUILIBRIUM'</span>
+        <span class="text-zinc-600 hidden sm:inline" aria-hidden="true">/</span>
+        <span class="hidden sm:inline text-zinc-400">WORLDWIDE EXPRESS SHIPPING</span>
+        <span class="text-zinc-600 hidden md:inline" aria-hidden="true">/</span>
+        <span class="hidden md:inline text-zinc-500">COMPLIMENTARY OVER $250</span>
+      </div>
+
+      <div class="flex items-center gap-3 shrink-0">
+        <label for="currency-select" class="sr-only">Select Currency</label>
+        <select id="currency-select" class="bg-transparent text-zinc-300 hover:text-white border border-zinc-800 rounded px-2 py-0.5 text-[11px] cursor-pointer focus:outline-none focus:border-zinc-500">
+          <option value="USD" class="bg-zinc-900 text-zinc-200">USD ($)</option>
+          <option value="EUR" class="bg-zinc-900 text-zinc-200">EUR (€)</option>
+          <option value="GBP" class="bg-zinc-900 text-zinc-200">GBP (£)</option>
+          <option value="JPY" class="bg-zinc-900 text-zinc-200">JPY (¥)</option>
+        </select>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= TOP NAVIGATION BAR ================= -->
+  <header class="sticky top-8 z-40 bg-[#09090b]/90 backdrop-blur-md border-b border-zinc-800/80">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-18 flex items-center justify-between gap-2 sm:gap-8">
+      <!-- Zone 1: Brand Wordmark & SVG Monogram -->
+      <a href="#" class="flex items-center gap-2 sm:gap-3 text-left group focus:outline-none">
+        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white transition-transform duration-300 group-hover:rotate-90 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="9" height="9" stroke="currentColor" stroke-width="1.5" />
+          <rect x="13" y="13" width="9" height="9" stroke="currentColor" stroke-width="1.5" />
+          <line x1="2" y1="22" x2="22" y2="2" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" />
+        </svg>
+        <span class="font-display text-sm sm:text-lg tracking-wider font-extrabold text-white uppercase whitespace-nowrap">
+          KINETIC ARCHIVE
+        </span>
+      </a>
+
+      <!-- Zone 2: Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-mono uppercase tracking-widest text-zinc-400">
+        <a href="#drop01" class="hover:text-white transition-colors">Drop 01</a>
+        <a href="#drop01" class="hover:text-white transition-colors">Collections</a>
+        <a href="#manifesto" class="hover:text-white transition-colors">Manifesto</a>
+        <a href="#lookbook" class="hover:text-white transition-colors">Lookbook</a>
+      </nav>
+
+      <!-- Zone 3: Actions (Search + Bag Trigger) -->
+      <div class="flex items-center gap-3 shrink-0">
+        <button id="search-trigger" class="p-2 text-zinc-400 hover:text-white focus:outline-none" aria-label="Search Collection">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </button>
+
+        <button id="cart-trigger" class="flex items-center gap-2 py-2 px-3 text-zinc-200 hover:text-white bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 transition-colors focus:outline-none cursor-pointer" aria-label="Open Shopping Bag">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+          <span id="nav-cart-badge" class="font-mono text-xs font-semibold tabular-nums text-white">BAG (1)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO CAMPAIGN BANNER ================= -->
+  <section class="relative min-h-[85vh] lg:min-h-[90vh] flex items-end justify-start overflow-hidden border-b border-zinc-800">
+    <div class="absolute inset-0 z-0">
+      <img src="/src/assets/images/kinetic_hero_streetwear_1792869213831.jpg"
+           onerror="this.src='https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=80'"
+           alt="KINETIC ARCHIVE Campaign"
+           class="w-full h-full object-cover object-center filter brightness-[0.75] contrast-[1.08]">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/40 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#09090b]/80 via-transparent to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 w-full">
+      <div class="max-w-3xl space-y-6">
+        <div class="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-zinc-400">
+          <span>Drop 01 // Equilibrium</span>
+          <span aria-hidden="true">·</span>
+          <span>Finite Edition of 300</span>
+          <span aria-hidden="true">·</span>
+          <span class="text-zinc-300">Tokyo & Milan</span>
+        </div>
+
+        <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-tight text-white leading-[0.95]">
+          Form Follows <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-500">
+            Silence.
+          </span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-zinc-300 max-w-xl font-light leading-relaxed">
+          Architectural technical outerwear and heavy gauge textiles crafted for the modern nomad.
+          Constructed with zero compromises.
+        </p>
+
+        <div class="pt-4 flex flex-wrap items-center gap-4">
+          <a href="#drop01" class="py-3.5 px-7 bg-white hover:bg-zinc-200 text-black font-mono text-xs uppercase tracking-widest font-semibold flex items-center gap-2 cursor-pointer transition-all shadow-lg">
+            <span>Shop Drop 01</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#manifesto" class="py-3.5 px-6 border border-zinc-700 hover:border-zinc-400 text-zinc-300 hover:text-white font-mono text-xs uppercase tracking-widest font-medium transition-colors bg-zinc-950/40">
+            Read Manifesto
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-16 sm:mt-20 flex items-center justify-between border-t border-zinc-800/80 pt-6 text-xs font-mono text-zinc-500">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 bg-white"></span>
+          <span class="tracking-widest uppercase">3-Layer Bonded Nylon · 520GSM French Terry</span>
+        </div>
+        <a href="#drop01" class="flex items-center gap-2 hover:text-zinc-300 transition-colors">
+          <span class="hidden sm:inline uppercase tracking-widest">Scroll to Catalog</span>
+          <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURED DROP / PRODUCT GRID ================= -->
+  <section id="drop01" class="py-20 sm:py-28 border-b border-zinc-800 bg-[#09090b]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-zinc-800">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-zinc-500 mb-2">
+            <span>Catalog</span>
+            <span aria-hidden="true">·</span>
+            <span>Drop 01 Equilibrium</span>
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white">
+            Featured Drop
+          </h2>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="flex items-center flex-wrap gap-2" id="filter-tabs">
+          <button data-filter="all" class="filter-btn py-1.5 px-3.5 text-xs font-mono uppercase tracking-wider bg-white text-black border border-white font-semibold">All Archive</button>
+          <button data-filter="outerwear" class="filter-btn py-1.5 px-3.5 text-xs font-mono uppercase tracking-wider bg-zinc-950 text-zinc-400 border border-zinc-800 hover:text-white">Outerwear</button>
+          <button data-filter="bottoms" class="filter-btn py-1.5 px-3.5 text-xs font-mono uppercase tracking-wider bg-zinc-950 text-zinc-400 border border-zinc-800 hover:text-white">Bottoms</button>
+          <button data-filter="sweats" class="filter-btn py-1.5 px-3.5 text-xs font-mono uppercase tracking-wider bg-zinc-950 text-zinc-400 border border-zinc-800 hover:text-white">Sweats</button>
+          <button data-filter="accessories" class="filter-btn py-1.5 px-3.5 text-xs font-mono uppercase tracking-wider bg-zinc-950 text-zinc-400 border border-zinc-800 hover:text-white">Accessories</button>
+        </div>
+      </div>
+
+      <!-- 4 Product Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pt-10" id="product-container">
+        <!-- Products will be dynamically populated / rendered -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BRAND MANIFESTO SECTION ================= -->
+  <section id="manifesto" class="py-24 sm:py-32 border-b border-zinc-800 bg-[#0c0c0e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div class="lg:col-span-5 relative aspect-[4/5] bg-zinc-900 overflow-hidden border border-zinc-800">
+          <img src="/src/assets/images/kinetic_hero_streetwear_1792869213831.jpg"
+               onerror="this.src='https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=80'"
+               alt="KINETIC ARCHIVE Atelier"
+               class="w-full h-full object-cover filter grayscale contrast-125">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <span class="font-mono text-xs uppercase tracking-widest text-zinc-400">Atelier Document // 2026</span>
+            <p class="font-display text-lg font-bold uppercase text-white mt-1">Monolithic Forms. Zero Noise.</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 space-y-8">
+          <div class="space-y-3">
+            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-zinc-500">
+              <span>The Architecture of Utility</span>
+              <span aria-hidden="true">·</span>
+              <span>Foundational Manifesto</span>
+            </div>
+            <h2 class="font-display text-3xl sm:text-5xl font-extrabold uppercase text-white tracking-tight leading-[1.05]">
+              We Do Not Follow Trends.<br>We Build Invariants.
+            </h2>
+          </div>
+
+          <p class="text-base sm:text-lg text-zinc-300 font-light leading-relaxed">
+            KINETIC ARCHIVE was conceived as structural resistance against the disposable velocity of seasonal fashion.
+            Operating between Tokyo and Milan, our atelier constructs modular technical garments at the intersection of brutalist
+            architecture and anatomical ergonomics.
+          </p>
+
+          <p class="text-sm text-zinc-400 font-light leading-relaxed">
+            Every garment in our catalog is pattern-cut to enable uninhibited anatomical freedom. We reject superfluous branding,
+            decorative tabs, and fragile fasteners in favor of bonded membranes, waterproof magnetic hardware, and heavyweight organic
+            fibers that develop a richer patina over decades of urban wear.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-zinc-800/80">
+            <div class="space-y-2">
+              <span class="font-mono text-xs text-white uppercase tracking-wider block">01. Material Rigor</span>
+              <p class="text-xs text-zinc-400 font-light leading-normal">
+                Custom-milled Japanese twills, 3-layer bonded membranes, and aerospace aluminium alloy fixtures.
+              </p>
+            </div>
+            <div class="space-y-2">
+              <span class="font-mono text-xs text-white uppercase tracking-wider block">02. Form Purity</span>
+              <p class="text-xs text-zinc-400 font-light leading-normal">
+                Monolithic silhouettes informed by brutalist concrete geometry and minimalist ergonomics.
+              </p>
+            </div>
+            <div class="space-y-2">
+              <span class="font-mono text-xs text-white uppercase tracking-wider block">03. Finite Runs</span>
+              <p class="text-xs text-zinc-400 font-light leading-normal">
+                Every release is strictly limited to 300 pieces per silhouette to eliminate overproduction waste.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VISUAL LOOKBOOK ================= -->
+  <section id="lookbook" class="py-24 sm:py-32 border-b border-zinc-800 bg-[#09090b]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-zinc-800">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-zinc-500 mb-2">
+            <span>Editorial Series</span>
+            <span aria-hidden="true">·</span>
+            <span>Volume 01</span>
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white">
+            Visual Lookbook
+          </h2>
+        </div>
+        <p class="text-xs font-mono text-zinc-400 max-w-sm">
+          Captured on 35mm film across the concrete monoliths of Tokyo and Milan. Styled with Drop 01 artifacts.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10">
+        <div class="space-y-4">
+          <div class="relative aspect-[3/4] bg-zinc-900 overflow-hidden border border-zinc-800 group">
+            <img src="/src/assets/images/kinetic_jacket_tactical_1792869214778.jpg"
+                 onerror="this.src='https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80'"
+                 alt="Look 01" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+              <span class="font-mono text-[11px] text-zinc-300 uppercase tracking-widest">Look 01</span>
+              <span class="font-display text-base font-bold text-white uppercase">Modular Shell + Heavy Cargo</span>
+            </div>
+          </div>
+          <div class="text-xs font-mono text-zinc-400 flex items-center justify-between">
+            <span>PLATE 01.1 // RAIN STATE</span>
+            <span class="text-zinc-600">35°39'N 139°41'E</span>
+          </div>
+        </div>
+
+        <div class="space-y-4 md:mt-12">
+          <div class="relative aspect-[3/4] bg-zinc-900 overflow-hidden border border-zinc-800 group">
+            <img src="/src/assets/images/kinetic_cargo_pant_1792869215883.jpg"
+                 onerror="this.src='https://images.unsplash.com/photo-1517445312882-bc9910d016b7?auto=format&fit=crop&w=800&q=80'"
+                 alt="Look 02" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+              <span class="font-mono text-[11px] text-zinc-300 uppercase tracking-widest">Look 02</span>
+              <span class="font-display text-base font-bold text-white uppercase">Articulated Knee Pleat Study</span>
+            </div>
+          </div>
+          <div class="text-xs font-mono text-zinc-400 flex items-center justify-between">
+            <span>PLATE 02.4 // KINETIC TENSION</span>
+            <span class="text-zinc-600">45°27'N 9°11'E</span>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="relative aspect-[3/4] bg-zinc-900 overflow-hidden border border-zinc-800 group">
+            <img src="/src/assets/images/kinetic_hero_streetwear_1792869213831.jpg"
+                 onerror="this.src='https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80'"
+                 alt="Look 03" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+              <span class="font-mono text-[11px] text-zinc-300 uppercase tracking-widest">Look 03</span>
+              <span class="font-display text-base font-bold text-white uppercase">Complete Drop 01 Uniform</span>
+            </div>
+          </div>
+          <div class="text-xs font-mono text-zinc-400 flex items-center justify-between">
+            <span>PLATE 03.2 // BRUTALIST PAVILION</span>
+            <span class="text-zinc-600">TOKYO ATELIER</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VIP ACCESS / NEWSLETTER ================= -->
+  <section class="py-20 sm:py-28 border-b border-zinc-800 bg-[#0e0e12]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <div class="flex items-center justify-center gap-2 text-xs font-mono uppercase tracking-widest text-zinc-500">
+        <span>Private Dispatch</span>
+        <span aria-hidden="true">·</span>
+        <span>Drop 02 Priority Roster</span>
+      </div>
+
+      <h2 class="font-display text-3xl sm:text-4xl font-extrabold uppercase text-white tracking-tight">
+        Access the Archive First
+      </h2>
+
+      <p class="text-sm sm:text-base text-zinc-400 font-light max-w-xl mx-auto leading-relaxed">
+        Subscribers receive 24-hour private window access prior to public catalog release.
+        Strictly limited production runs. Zero marketing spam.
+      </p>
+
+      <div id="newsletter-form-container">
+        <form id="newsletter-form" class="pt-4 max-w-md mx-auto space-y-3">
+          <div class="flex flex-col sm:flex-row gap-2">
+            <label for="newsletter-input" class="sr-only">Email Address</label>
+            <input id="newsletter-input" type="email" placeholder="name@domain.com" required
+                   class="flex-1 bg-black/60 border border-zinc-700 focus:border-white px-4 py-3 text-sm text-white placeholder-zinc-500 font-mono rounded-none focus:outline-none transition-colors">
+            <button type="submit" class="py-3 px-6 bg-white hover:bg-zinc-200 text-black font-mono text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer whitespace-nowrap active:scale-95">
+              <span>Request Access</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+          <p id="newsletter-error" class="text-xs text-rose-400 font-mono text-left hidden"></p>
+          <p class="text-[11px] font-mono text-zinc-600">
+            By joining, you agree to receive encrypted release dispatches. Unsubscribe anytime.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-[#070709] border-t border-zinc-800 text-zinc-400 py-16 sm:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="9" height="9" stroke="currentColor" stroke-width="1.5" />
+              <rect x="13" y="13" width="9" height="9" stroke="currentColor" stroke-width="1.5" />
+              <line x1="2" y1="22" x2="22" y2="2" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" />
+            </svg>
+            <span class="font-display text-base font-bold text-white uppercase tracking-wider">
+              KINETIC ARCHIVE
+            </span>
+          </div>
+          <p class="text-xs font-mono text-zinc-400 max-w-sm leading-relaxed">
+            Technical luxury streetwear engineered in Tokyo & Milan. Dedicated to monolithic silhouettes,
+            high-performance bonded textiles, and zero overproduction.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <span class="text-xs font-mono uppercase tracking-widest text-zinc-200 block">Catalog</span>
+          <ul class="space-y-2 text-xs font-mono text-zinc-400">
+            <li><a href="#drop01" class="hover:text-white transition-colors">Drop 01 // Equilibrium</a></li>
+            <li><a href="#drop01" class="hover:text-white transition-colors">Technical Outerwear</a></li>
+            <li><a href="#drop01" class="hover:text-white transition-colors">Articulated Bottoms</a></li>
+            <li><a href="#drop01" class="hover:text-white transition-colors">Heavy Sweats</a></li>
+            <li><a href="#drop01" class="hover:text-white transition-colors">Ballistic Hardware</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <span class="text-xs font-mono uppercase tracking-widest text-zinc-200 block">Atelier</span>
+          <ul class="space-y-2 text-xs font-mono text-zinc-400">
+            <li><a href="#manifesto" class="hover:text-white transition-colors">Brand Manifesto</a></li>
+            <li><a href="#lookbook" class="hover:text-white transition-colors">Lookbook Vol. 01</a></li>
+            <li><span class="text-zinc-600">Material Provenance</span></li>
+            <li><span class="text-zinc-600">Tokyo Design Lab</span></li>
+            <li><span class="text-zinc-600">Milan Technical Atelier</span></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <span class="text-xs font-mono uppercase tracking-widest text-zinc-200 block">Global Dispatch</span>
+          <p class="text-xs font-mono text-zinc-400">
+            Express worldwide airfreight from Milan & Tokyo via DHL Express. All orders are hand-packaged in recyclable archival cartons.
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-500">
+        <div>© 2026 KINETIC ARCHIVE ATELIER. ALL RIGHTS RESERVED.</div>
+        <div class="flex items-center gap-6 text-zinc-400">
+          <span class="hover:text-white transition-colors cursor-pointer">Instagram ↗</span>
+          <span class="hover:text-white transition-colors cursor-pointer">Discord ↗</span>
+          <span class="hover:text-white transition-colors cursor-pointer">Spotify ↗</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= SLIDE-OUT CART DRAWER ================= -->
+  <div id="cart-drawer-backdrop" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+    <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+      <div id="cart-drawer-panel" class="w-screen max-w-md bg-[#0d0d10] border-l border-zinc-800 flex flex-col shadow-2xl translate-x-full drawer-transition">
+        <div class="p-6 border-b border-zinc-800 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="font-display text-lg font-bold uppercase text-white tracking-wider">Shopping Bag</span>
+            <span id="cart-items-count-header" class="font-mono text-xs text-zinc-400">(1)</span>
+          </div>
+          <button id="cart-close" class="p-2 text-zinc-400 hover:text-white transition-colors" aria-label="Close bag">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <!-- Free shipping bar -->
+        <div id="shipping-progress-container" class="px-6 py-3.5 bg-zinc-950 border-b border-zinc-800/80 text-xs font-mono">
+          <!-- Populated via JS -->
+        </div>
+
+        <!-- Cart items list -->
+        <div id="cart-items-list" class="flex-1 overflow-y-auto p-6 space-y-6">
+          <!-- Populated via JS -->
+        </div>
+
+        <!-- Cart drawer footer -->
+        <div id="cart-footer-container" class="p-6 border-t border-zinc-800 bg-[#0a0a0d] space-y-4">
+          <form id="promo-form" class="space-y-1.5">
+            <div class="flex gap-2">
+              <input id="promo-input" type="text" placeholder="Promo Code (DROP01)" class="flex-1 bg-black/60 border border-zinc-800 px-3 py-2 text-xs text-white placeholder-zinc-500 font-mono uppercase focus:outline-none">
+              <button type="submit" class="py-2 px-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-mono uppercase cursor-pointer">Apply</button>
+            </div>
+            <p id="promo-msg" class="text-[11px] font-mono hidden"></p>
+          </form>
+
+          <div class="space-y-1.5 pt-2 text-xs font-mono">
+            <div class="flex justify-between text-zinc-400">
+              <span>Subtotal</span>
+              <span id="cart-subtotal" class="text-white tabular-nums">$480</span>
+            </div>
+            <div id="discount-row" class="flex justify-between text-emerald-400 hidden">
+              <span id="discount-label">Discount</span>
+              <span id="cart-discount" class="tabular-nums">-$0</span>
+            </div>
+            <div class="flex justify-between text-zinc-400">
+              <span>Worldwide Shipping</span>
+              <span id="cart-shipping" class="text-white tabular-nums">FREE</span>
+            </div>
+            <div class="flex justify-between text-sm font-semibold text-white pt-2 border-t border-zinc-800/80">
+              <span>Total</span>
+              <span id="cart-total" class="font-mono tabular-nums">$480</span>
+            </div>
+          </div>
+
+          <button id="checkout-trigger-btn" class="w-full py-3.5 px-6 bg-white hover:bg-zinc-200 text-black font-mono text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-lg active:scale-98">
+            <span>Proceed to Checkout</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= QUICK VIEW MODAL ================= -->
+  <div id="quickview-backdrop" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md hidden opacity-0 transition-opacity duration-200">
+    <div id="quickview-content" class="relative w-full max-w-4xl bg-[#0f0f13] border border-zinc-800 shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh]">
+      <!-- Content injected by JS -->
+    </div>
+  </div>
+
+  <!-- ================= SEARCH MODAL ================= -->
+  <div id="search-modal" class="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/85 backdrop-blur-md hidden opacity-0 transition-opacity duration-200">
+    <div class="w-full max-w-2xl bg-[#0f0f13] border border-zinc-800 shadow-2xl p-6 space-y-6">
+      <div class="flex items-center justify-between pb-4 border-b border-zinc-800">
+        <div class="relative flex-1 flex items-center">
+          <svg class="w-4 h-4 text-zinc-500 absolute left-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input id="search-query-input" type="text" placeholder="Search by silhouette, material, or SKU..." class="w-full bg-transparent pl-8 pr-4 py-2 text-sm text-white placeholder-zinc-500 font-mono focus:outline-none">
+        </div>
+        <button id="search-close" class="p-1.5 text-zinc-400 hover:text-white" aria-label="Close search">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div id="search-results-list" class="space-y-3 max-h-96 overflow-y-auto divide-y divide-zinc-800">
+        <!-- Search results injected -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOAST NOTIFICATION ================= -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-[#111115] border border-zinc-700 text-white py-3 px-4 shadow-2xl hidden transition-all duration-300">
+    <div class="w-5 h-5 bg-white text-black flex items-center justify-center shrink-0">
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    </div>
+    <span id="toast-text" class="text-xs font-mono text-zinc-200"></span>
+  </div>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    // Product Catalog
+    const PRODUCTS = [
+      {
+        id: 'ka-01-jkt',
+        sku: 'KA-01-JKT',
+        name: 'Tactical Modular Shell Jacket',
+        category: 'outerwear',
+        categoryLabel: 'Outerwear',
+        priceUSD: 480,
+        image: '/src/assets/images/kinetic_jacket_tactical_1792869214778.jpg',
+        fallback: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80',
+        badge: 'DROP 01',
+        description: 'Architectural modular shell engineered from 3-layer bonded microporous nylon. Features magnetic storm flap, taped water-sealed seams, and articulated sleeve patterning.',
+        composition: '100% Japanese 3-Layer Micro-Ripstop Nylon',
+        fit: 'Boxy architectural cut with dropped shoulders. True to size.',
+        sizes: ['S', 'M', 'L', 'XL'],
+        specs: ['20,000mm Waterproof Hydrostatic Head', 'Laser-cut underarm ventilation', 'Concealed magnetic storm closure', 'Internal dual sling straps']
+      },
+      {
+        id: 'ka-02-btm',
+        sku: 'KA-02-BTM',
+        name: 'Articulated Heavy Twill Cargo',
+        category: 'bottoms',
+        categoryLabel: 'Bottoms',
+        priceUSD: 320,
+        image: '/src/assets/images/kinetic_cargo_pant_1792869215883.jpg',
+        fallback: 'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?auto=format&fit=crop&w=800&q=80',
+        badge: 'ARCHIVAL',
+        description: 'Constructed from custom-developed 460GSM washed carbon twill. Engineered with triple-pleated knee articulation for fluid movement and ergonomic geometric cargo pockets.',
+        composition: '100% Heavyweight Japanese Cotton Twill (460GSM)',
+        fit: 'Relaxed taper with adjustable elasticated toggle cuffs.',
+        sizes: ['S', 'M', 'L', 'XL'],
+        specs: ['Triple-pleated articulated knees', 'Integrated nylon web belt with magnetic release', 'Concealed zipped passport pocket', 'Reinforced gusseted seat']
+      },
+      {
+        id: 'ka-03-sweat',
+        sku: 'KA-03-SWEAT',
+        name: '520GSM Oversized Boxy Hoodie',
+        category: 'sweats',
+        categoryLabel: 'Sweatshirts',
+        priceUSD: 240,
+        image: '/src/assets/images/kinetic_hoodie_heavy_1792869216396.jpg',
+        fallback: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80',
+        badge: 'CORE ARCHIVE',
+        description: 'The definitive luxury heavyweight silhouette. Spun from ultra-dense 520GSM combed loopback French terry with a seamless double-layered hood.',
+        composition: '100% Combed Organic Loopback Cotton (520GSM)',
+        fit: 'Exaggerated boxy torso, dropped shoulders, slightly cropped waist.',
+        sizes: ['S', 'M', 'L', 'XL'],
+        specs: ['Pre-shrunk vintage carbon wash', 'Double-layer sculptural hood without drawstrings', 'Seamless side construction', 'Thick 2x2 ribbing at cuffs']
+      },
+      {
+        id: 'ka-04-acc',
+        sku: 'KA-04-ACC',
+        name: 'Monolith Ballistic Tote',
+        category: 'accessories',
+        categoryLabel: 'Accessories',
+        priceUSD: 190,
+        image: '/src/assets/images/kinetic_monolith_tote_1792869215959.jpg',
+        fallback: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80',
+        badge: 'LIMITED RUN',
+        description: 'Structured modular daily monolith built from water-resistant 1680D ballistic nylon. Features aerospace aluminum hardware and padded interior device sleeve.',
+        composition: '1680D Ballistic Cordura Nylon & Full-Grain Italian Trim',
+        fit: 'Monolithic structured silhouette (24L capacity)',
+        sizes: ['ONE SIZE'],
+        specs: ['Padded 16" MacBook compartment', 'Aerospace anodized aluminium hardware', 'Detachable seatbelt webbing shoulder harness', 'Internal key carabiner']
+      }
+    ];
+
+    const CURRENCIES = {
+      USD: { symbol: '$', rate: 1.0 },
+      EUR: { symbol: '€', rate: 0.92 },
+      GBP: { symbol: '£', rate: 0.79 },
+      JPY: { symbol: '¥', rate: 155.0 }
+    };
+
+    let currentCurrency = 'USD';
+    let cartItems = [
+      { product: PRODUCTS[0], size: 'L', quantity: 1 }
+    ];
+    let appliedDiscountCode = '';
+    let currentCategoryFilter = 'all';
+
+    function formatPrice(usdAmount) {
+      const { symbol, rate } = CURRENCIES[currentCurrency] || CURRENCIES.USD;
+      const converted = Math.round(usdAmount * rate);
+      return `${symbol}${converted.toLocaleString()}`;
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const text = document.getElementById('toast-text');
+      text.textContent = message;
+      toast.classList.remove('hidden');
+      setTimeout(() => toast.classList.add('hidden'), 3000);
+    }
+
+    // Render Product Grid
+    function renderProductGrid() {
+      const container = document.getElementById('product-container');
+      container.innerHTML = '';
+
+      const filtered = PRODUCTS.filter(p => currentCategoryFilter === 'all' || p.category === currentCategoryFilter);
+
+      filtered.forEach(p => {
+        const card = document.createElement('article');
+        card.className = 'group relative flex flex-col bg-[#0e0e11] border border-zinc-800/80 hover:border-zinc-700 transition-all duration-300';
+        
+        card.innerHTML = `
+          <div class="relative aspect-[3/4] w-full overflow-hidden bg-zinc-900 cursor-pointer product-img-trigger">
+            <img src="${p.image}" onerror="this.src='${p.fallback}'" alt="${p.name}" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            <div class="absolute top-3 left-3 bg-[#09090b]/80 border border-zinc-800 text-[10px] font-mono text-zinc-300 px-2 py-1 uppercase tracking-widest">${p.badge}</div>
+            
+            <div class="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-between gap-2">
+              <div class="flex items-center gap-1.5 size-btn-group">
+                ${p.sizes.map((s, idx) => `
+                  <button type="button" data-size="${s}" class="size-pill px-2 py-1 text-[11px] font-mono border ${idx === 0 ? 'bg-white text-black border-white font-semibold' : 'bg-black/60 text-zinc-400 border-zinc-700'}">${s}</button>
+                `).join('')}
+              </div>
+              <button type="button" class="quick-add-btn p-1.5 bg-white text-black hover:bg-zinc-200 transition-colors cursor-pointer shrink-0" aria-label="Add to Bag">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="p-4 sm:p-5 flex flex-col flex-1 justify-between gap-4">
+            <div>
+              <div class="flex items-center justify-between text-[11px] font-mono text-zinc-500 uppercase tracking-wider mb-1">
+                <span>${p.categoryLabel}</span>
+                <span>${p.sku}</span>
+              </div>
+              <h3 class="text-base font-semibold text-zinc-100 group-hover:text-white transition-colors cursor-pointer product-title-trigger line-clamp-1">${p.name}</h3>
+              <p class="text-xs text-zinc-400 mt-1 line-clamp-1 font-light">${p.composition}</p>
+            </div>
+            <div class="pt-3 border-t border-zinc-800/80 flex items-center justify-between">
+              <span class="font-mono text-sm font-semibold text-white tabular-nums">${formatPrice(p.priceUSD)}</span>
+              <button type="button" class="quick-add-text-btn py-1.5 px-3 text-xs font-mono uppercase tracking-wider text-zinc-300 hover:text-white hover:bg-zinc-800 border border-zinc-800 transition-colors flex items-center gap-1.5 cursor-pointer">
+                <span>+ Quick Add</span>
+              </button>
+            </div>
+          </div>
+        `;
+
+        // Size pill toggles
+        let selectedSize = p.sizes[0];
+        card.querySelectorAll('.size-pill').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            card.querySelectorAll('.size-pill').forEach(b => {
+              b.className = 'size-pill px-2 py-1 text-[11px] font-mono border bg-black/60 text-zinc-400 border-zinc-700';
+            });
+            btn.className = 'size-pill px-2 py-1 text-[11px] font-mono border bg-white text-black border-white font-semibold';
+            selectedSize = btn.dataset.size;
+          });
+        });
+
+        // Quick add triggers
+        const triggerAdd = (e) => {
+          e.stopPropagation();
+          addToCart(p, selectedSize);
+        };
+        card.querySelector('.quick-add-btn').addEventListener('click', triggerAdd);
+        card.querySelector('.quick-add-text-btn').addEventListener('click', triggerAdd);
+
+        // Quick view trigger
+        const triggerQuickView = () => openQuickView(p);
+        card.querySelector('.product-img-trigger').addEventListener('click', triggerQuickView);
+        card.querySelector('.product-title-trigger').addEventListener('click', triggerQuickView);
+
+        container.appendChild(card);
+      });
+    }
+
+    // Add to Cart Logic
+    function addToCart(product, size) {
+      const existing = cartItems.find(i => i.product.id === product.id && i.size === size);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cartItems.push({ product, size, quantity: 1 });
+      }
+      updateCartUI();
+      showToast(`Added ${product.name} (${size}) to bag.`);
+    }
+
+    // Update Cart UI
+    function updateCartUI() {
+      const totalCount = cartItems.reduce((acc, i) => acc + i.quantity, 0);
+      document.getElementById('nav-cart-badge').textContent = `BAG (${totalCount})`;
+      document.getElementById('cart-items-count-header').textContent = `(${totalCount})`;
+
+      const listContainer = document.getElementById('cart-items-list');
+      const progressContainer = document.getElementById('shipping-progress-container');
+      const subtotalEl = document.getElementById('cart-subtotal');
+      const shippingEl = document.getElementById('cart-shipping');
+      const totalEl = document.getElementById('cart-total');
+      const discountRow = document.getElementById('discount-row');
+      const discountEl = document.getElementById('cart-discount');
+      const discountLabel = document.getElementById('discount-label');
+
+      let subtotalUSD = cartItems.reduce((acc, i) => acc + i.product.priceUSD * i.quantity, 0);
+
+      // Free shipping threshold = $250
+      const freeShippingNeeded = Math.max(0, 250 - subtotalUSD);
+      const percent = Math.min(100, Math.round((subtotalUSD / 250) * 100));
+
+      if (freeShippingNeeded > 0) {
+        progressContainer.innerHTML = `
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between text-zinc-400">
+              <span>Add ${formatPrice(freeShippingNeeded)} for Free Express Shipping</span>
+              <span class="text-zinc-500 tabular-nums">${percent}%</span>
+            </div>
+            <div class="w-full h-1 bg-zinc-800"><div class="h-full bg-white transition-all" style="width: ${percent}%"></div></div>
+          </div>
+        `;
+      } else {
+        progressContainer.innerHTML = `
+          <div class="text-emerald-400 flex items-center gap-1.5">
+            <span>✓ Complimentary Express Worldwide Shipping Unlocked</span>
+          </div>
+        `;
+      }
+
+      if (cartItems.length === 0) {
+        listContainer.innerHTML = `
+          <div class="h-full flex flex-col items-center justify-center text-center space-y-4 py-16">
+            <p class="font-display text-base font-bold uppercase text-zinc-300">Your bag is empty</p>
+            <p class="font-mono text-xs text-zinc-500">Pieces from Drop 01 are reserved upon add.</p>
+          </div>
+        `;
+        subtotalEl.textContent = formatPrice(0);
+        shippingEl.textContent = formatPrice(0);
+        totalEl.textContent = formatPrice(0);
+        discountRow.classList.add('hidden');
+        return;
+      }
+
+      listContainer.innerHTML = cartItems.map((item, idx) => `
+        <div class="flex gap-4 pb-6 border-b border-zinc-800/80">
+          <div class="w-20 aspect-[3/4] bg-zinc-900 border border-zinc-800 overflow-hidden shrink-0">
+            <img src="${item.product.image}" onerror="this.src='${item.product.fallback}'" alt="${item.product.name}" class="w-full h-full object-cover">
+          </div>
+          <div class="flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between">
+                <h4 class="text-sm font-semibold text-white line-clamp-1">${item.product.name}</h4>
+                <button onclick="removeCartItem(${idx})" class="text-zinc-500 hover:text-rose-400 text-xs">✕</button>
+              </div>
+              <div class="text-xs font-mono text-zinc-400">SIZE: ${item.size} · ${item.product.sku}</div>
+            </div>
+            <div class="flex items-center justify-between pt-2">
+              <div class="flex items-center border border-zinc-800 bg-zinc-950">
+                <button onclick="changeQty(${idx}, -1)" class="px-2 py-1 text-zinc-400 hover:text-white">-</button>
+                <span class="px-2 text-xs font-mono text-white">${item.quantity}</span>
+                <button onclick="changeQty(${idx}, 1)" class="px-2 py-1 text-zinc-400 hover:text-white">+</button>
+              </div>
+              <span class="font-mono text-xs font-semibold text-white">${formatPrice(item.product.priceUSD * item.quantity)}</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      // Discount calculation
+      let discountAmountUSD = 0;
+      if (appliedDiscountCode === 'DROP01') {
+        discountAmountUSD = subtotalUSD * 0.10;
+        discountLabel.textContent = 'Discount (10% DROP01)';
+        discountRow.classList.remove('hidden');
+        discountEl.textContent = `-${formatPrice(discountAmountUSD)}`;
+      } else if (appliedDiscountCode === 'ARCHIVE20') {
+        discountAmountUSD = subtotalUSD * 0.20;
+        discountLabel.textContent = 'Discount (20% ARCHIVE20)';
+        discountRow.classList.remove('hidden');
+        discountEl.textContent = `-${formatPrice(discountAmountUSD)}`;
+      } else if (appliedDiscountCode === 'VIPPASS') {
+        discountAmountUSD = subtotalUSD * 0.15;
+        discountLabel.textContent = 'VIP Pass Discount (15%)';
+        discountRow.classList.remove('hidden');
+        discountEl.textContent = `-${formatPrice(discountAmountUSD)}`;
+      } else {
+        discountRow.classList.add('hidden');
+      }
+
+      const shippingUSD = (subtotalUSD >= 250 || subtotalUSD === 0) ? 0 : 25;
+      const totalUSD = Math.max(0, subtotalUSD - discountAmountUSD + shippingUSD);
+
+      subtotalEl.textContent = formatPrice(subtotalUSD);
+      shippingEl.textContent = shippingUSD === 0 ? 'FREE' : formatPrice(shippingUSD);
+      totalEl.textContent = formatPrice(totalUSD);
+    }
+
+    window.changeQty = function(idx, delta) {
+      if (cartItems[idx]) {
+        cartItems[idx].quantity += delta;
+        if (cartItems[idx].quantity <= 0) {
+          cartItems.splice(idx, 1);
+        }
+        updateCartUI();
+      }
+    };
+
+    window.removeCartItem = function(idx) {
+      cartItems.splice(idx, 1);
+      updateCartUI();
+      showToast('Item removed from bag.');
+    };
+
+    // Quick View Dialog
+    function openQuickView(p) {
+      const modal = document.getElementById('quickview-backdrop');
+      const content = document.getElementById('quickview-content');
+
+      content.innerHTML = `
+        <button id="quickview-close" class="absolute top-4 right-4 z-20 p-2 text-zinc-400 hover:text-white bg-black/60 border border-zinc-800">✕</button>
+        <div class="w-full md:w-1/2 aspect-[3/4] bg-zinc-950 relative">
+          <img src="${p.image}" onerror="this.src='${p.fallback}'" alt="${p.name}" class="w-full h-full object-cover">
+          <div class="absolute top-4 left-4 bg-black/80 border border-zinc-800 text-[10px] font-mono text-zinc-300 px-2 py-1 uppercase">${p.badge}</div>
+        </div>
+        <div class="w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto space-y-6">
+          <div class="space-y-4">
+            <div class="text-xs font-mono text-zinc-500 uppercase">${p.categoryLabel} · ${p.sku}</div>
+            <h2 class="font-display text-2xl font-bold uppercase text-white">${p.name}</h2>
+            <div class="text-xl font-mono font-semibold text-white">${formatPrice(p.priceUSD)}</div>
+            <p class="text-sm text-zinc-300 font-light leading-relaxed">${p.description}</p>
+            <div class="pt-2">
+              <span class="text-xs font-mono text-zinc-400 uppercase block mb-2">Select Size</span>
+              <div class="flex items-center gap-2" id="qv-sizes">
+                ${p.sizes.map((s, i) => `
+                  <button data-size="${s}" class="qv-size-btn py-2 px-4 text-xs font-mono border ${i === 0 ? 'bg-white text-black border-white font-bold' : 'bg-zinc-950 text-zinc-300 border-zinc-800'}">${s}</button>
+                `).join('')}
+              </div>
+            </div>
+            <div class="pt-4 border-t border-zinc-800 space-y-2">
+              <span class="text-[11px] font-mono uppercase text-zinc-500">Specifications</span>
+              <ul class="text-xs text-zinc-400 font-mono space-y-1">
+                ${p.specs.map(s => `<li>· ${s}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+          <button id="qv-add-btn" class="w-full py-3.5 px-6 bg-white hover:bg-zinc-200 text-black font-mono text-xs uppercase tracking-widest font-semibold">Add to Bag · ${formatPrice(p.priceUSD)}</button>
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+      setTimeout(() => modal.classList.remove('opacity-0'), 10);
+
+      let qvSelectedSize = p.sizes[0];
+      content.querySelectorAll('.qv-size-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          content.querySelectorAll('.qv-size-btn').forEach(b => {
+            b.className = 'qv-size-btn py-2 px-4 text-xs font-mono border bg-zinc-950 text-zinc-300 border-zinc-800';
+          });
+          btn.className = 'qv-size-btn py-2 px-4 text-xs font-mono border bg-white text-black border-white font-bold';
+          qvSelectedSize = btn.dataset.size;
+        });
+      });
+
+      document.getElementById('quickview-close').addEventListener('click', closeQuickView);
+      document.getElementById('qv-add-btn').addEventListener('click', () => {
+        addToCart(p, qvSelectedSize);
+        closeQuickView();
+      });
+    }
+
+    function closeQuickView() {
+      const modal = document.getElementById('quickview-backdrop');
+      modal.classList.add('opacity-0');
+      setTimeout(() => modal.classList.add('hidden'), 200);
+    }
+
+    // Cart Drawer Toggle
+    const cartBackdrop = document.getElementById('cart-drawer-backdrop');
+    const cartPanel = document.getElementById('cart-drawer-panel');
+
+    function openCart() {
+      cartBackdrop.classList.remove('hidden');
+      setTimeout(() => {
+        cartBackdrop.classList.remove('opacity-0');
+        cartPanel.classList.remove('translate-x-full');
+      }, 10);
+    }
+
+    function closeCart() {
+      cartBackdrop.classList.add('opacity-0');
+      cartPanel.classList.add('translate-x-full');
+      setTimeout(() => cartBackdrop.classList.add('hidden'), 300);
+    }
+
+    document.getElementById('cart-trigger').addEventListener('click', openCart);
+    document.getElementById('cart-close').addEventListener('click', closeCart);
+    cartBackdrop.addEventListener('click', (e) => {
+      if (e.target === cartBackdrop) closeCart();
+    });
+
+    // Promo Code Form
+    document.getElementById('promo-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const code = document.getElementById('promo-input').value.trim().toUpperCase();
+      const msg = document.getElementById('promo-msg');
+      if (code === 'DROP01' || code === 'ARCHIVE20' || code === 'VIPPASS') {
+        appliedDiscountCode = code;
+        msg.textContent = `Promo code ${code} applied successfully!`;
+        msg.className = 'text-[11px] font-mono text-emerald-400 block';
+        updateCartUI();
+      } else {
+        msg.textContent = 'Invalid code. Try DROP01 or VIPPASS';
+        msg.className = 'text-[11px] font-mono text-rose-400 block';
+      }
+    });
+
+    // Checkout Modal Simulation
+    document.getElementById('checkout-trigger-btn').addEventListener('click', () => {
+      closeCart();
+      const orderId = `KA-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+      showToast(`Order #${orderId} Confirmed. Dispatching from Milan Atelier.`);
+      cartItems = [];
+      updateCartUI();
+    });
+
+    // Search Modal
+    const searchModal = document.getElementById('search-modal');
+    const searchInput = document.getElementById('search-query-input');
+    const searchResults = document.getElementById('search-results-list');
+
+    function openSearch() {
+      searchModal.classList.remove('hidden');
+      setTimeout(() => {
+        searchModal.classList.remove('opacity-0');
+        searchInput.focus();
+        renderSearchResults('');
+      }, 10);
+    }
+
+    function closeSearch() {
+      searchModal.classList.add('opacity-0');
+      setTimeout(() => searchModal.classList.add('hidden'), 200);
+    }
+
+    function renderSearchResults(q) {
+      const query = q.toLowerCase().trim();
+      const filtered = PRODUCTS.filter(p => !query || p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query) || p.sku.toLowerCase().includes(query));
+      searchResults.innerHTML = filtered.map(p => `
+        <div class="py-3 flex items-center justify-between hover:bg-zinc-900/50 px-2 cursor-pointer search-item-row" data-id="${p.id}">
+          <div class="flex items-center gap-3">
+            <img src="${p.image}" onerror="this.src='${p.fallback}'" class="w-12 h-14 object-cover border border-zinc-800">
+            <div>
+              <h4 class="text-xs font-semibold text-white">${p.name}</h4>
+              <p class="text-[11px] font-mono text-zinc-500">${p.sku} · ${p.categoryLabel}</p>
+            </div>
+          </div>
+          <span class="font-mono text-xs font-semibold text-white">${formatPrice(p.priceUSD)}</span>
+        </div>
+      `).join('');
+
+      searchResults.querySelectorAll('.search-item-row').forEach(row => {
+        row.addEventListener('click', () => {
+          const product = PRODUCTS.find(p => p.id === row.dataset.id);
+          if (product) {
+            closeSearch();
+            openQuickView(product);
+          }
+        });
+      });
+    }
+
+    searchInput.addEventListener('input', (e) => renderSearchResults(e.target.value));
+    document.getElementById('search-trigger').addEventListener('click', openSearch);
+    document.getElementById('search-close').addEventListener('click', closeSearch);
+
+    // Currency Switcher
+    document.getElementById('currency-select').addEventListener('change', (e) => {
+      currentCurrency = e.target.value;
+      renderProductGrid();
+      updateCartUI();
+      showToast(`Billing currency switched to ${currentCurrency}`);
+    });
+
+    // Filter Buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => {
+          b.className = 'filter-btn py-1.5 px-3.5 text-xs font-mono uppercase tracking-wider bg-zinc-950 text-zinc-400 border border-zinc-800 hover:text-white';
+        });
+        btn.className = 'filter-btn py-1.5 px-3.5 text-xs font-mono uppercase tracking-wider bg-white text-black border border-white font-semibold';
+        currentCategoryFilter = btn.dataset.filter;
+        renderProductGrid();
+      });
+    });
+
+    // Newsletter Form
+    document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('newsletter-input').value;
+      const container = document.getElementById('newsletter-form-container');
+      const vipId = `KA-VIP-${Math.floor(1000 + Math.random() * 9000)}`;
+      container.innerHTML = `
+        <div class="pt-6 pb-2 max-w-md mx-auto p-6 bg-black/80 border border-zinc-800 space-y-3 text-left">
+          <div class="text-emerald-400 font-mono text-xs uppercase tracking-wider font-semibold">✓ Priority VIP Credentials Confirmed</div>
+          <p class="text-sm text-zinc-300 font-light">Transmission recorded for <span class="font-mono text-white">${email}</span>.</p>
+          <div class="p-3 bg-zinc-950 border border-zinc-800 flex items-center justify-between font-mono text-xs">
+            <span class="text-zinc-500 uppercase">VIP Pass ID:</span>
+            <span class="text-white font-bold">${vipId}</span>
+          </div>
+          <p class="text-[11px] font-mono text-zinc-400">Use code <span class="text-white font-bold">VIPPASS</span> at checkout for 15% off.</p>
+        </div>
+      `;
+      showToast('VIP Access Pass granted. Check your pass code.');
+    });
+
+    // Escape Key Handler
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeCart();
+        closeQuickView();
+        closeSearch();
+      }
+    });
+
+    // Initial render
+    renderProductGrid();
+    updateCartUI();
+  </script>
+</body>
+</html>
